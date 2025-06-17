@@ -3,7 +3,7 @@ import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head } from "@inertiajs/react";
 import TasksTable from "../Task/TasksTable";
 
-export default function Show({auth, project, tasks, queryParams}) {
+export default function Show({auth, project, success, tasks, queryParams}) {
     return (
         <AuthenticatedLayout 
         user={auth.user}
@@ -82,7 +82,7 @@ export default function Show({auth, project, tasks, queryParams}) {
                     <div className="overflow-hidden bg-white shadow-sm sm:rounded-lg dark:bg-gray-800">
                         <div className="p-6 text-gray-900 dark:text-gray-100">
                             {/* <pre>{JSON.stringify(projects, undefined, 2)}</pre> */}
-                           <TasksTable tasks={tasks} queryParams={queryParams}
+                           <TasksTable tasks={tasks} success={success} queryParams={queryParams}
                            hideProjectColumn={true} />  
                         </div>
                     </div>
