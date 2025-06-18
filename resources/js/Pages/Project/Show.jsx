@@ -8,7 +8,7 @@ export default function Show({auth, project, success, tasks, queryParams}) {
         <AuthenticatedLayout 
         user={auth.user}
         header={
-            <div>
+            <div className="flex items-center justify-between">
             <h2 className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
                 {`Projects "${project.name}"`}
             </h2>
