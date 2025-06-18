@@ -1,6 +1,6 @@
 import { PROJECT_STATUS_CLASS_MAP, PROJECT_STATUS_TEXT_MAP } from "@/constant";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
-import { Head } from "@inertiajs/react";
+import { Head, Link } from "@inertiajs/react";
 import TasksTable from "../Task/TasksTable";
 
 export default function Show({auth, project, success, tasks, queryParams}) {
@@ -8,9 +8,15 @@ export default function Show({auth, project, success, tasks, queryParams}) {
         <AuthenticatedLayout 
         user={auth.user}
         header={
+            <div>
             <h2 className="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
                 {`Projects "${project.name}"`}
             </h2>
+
+            <Link href={route("project.edit", project.id)} className="bg-emerald-500 py-1 px-3 text-white rounded shadow transition-all hover:bg-emerald-600">
+                Edit Project
+            </Link>
+            </div>
         }>
             <Head title={`Project "${project.name}"`} />
             <div className="py-12">
